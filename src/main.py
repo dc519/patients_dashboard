@@ -12,7 +12,7 @@ from .startup import load_patients_data
 from pydantic import BaseModel
 from .models import SearchCriteria
 from .patient_match import find_matching_patient
-
+import os
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -22,12 +22,15 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # src folder path
+STATIC_DIR = os.path.join(BASE_DIR, "static")          # src/static
+TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")   
+
 # Templates
-templates = Jinja2Templates(directory="src/templates")
+templates = Jinja2Templates(directory=TEMPLATES_DIR)
 
 # Static files (CSS/JS)
-app.mount("/static", StaticFiles(directory="src/static"), name="static")
-
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 
 # Endpoints
