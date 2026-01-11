@@ -67,17 +67,50 @@ async function loadMedications() {
     }
 }
 
-// ---------- ENABLE BUTTONS ----------
+// ---------- DROPDOWN CHANGE HANDLERS (Mutual Exclusivity) ----------
 document.getElementById("dropdown1").addEventListener("change", () => {
-    document.getElementById("nextConditionBtn").disabled = false;
+    const dropdown1 = document.getElementById("dropdown1");
+    if (dropdown1.value) {
+        // Reset other dropdowns and disable their buttons
+        document.getElementById("dropdown2").value = "";
+        document.getElementById("dropdown3").value = "";
+        document.getElementById("nextProcedureBtn").disabled = true;
+        document.getElementById("nextMedicationBtn").disabled = true;
+        // Enable this dropdown's button
+        document.getElementById("nextConditionBtn").disabled = false;
+    } else {
+        document.getElementById("nextConditionBtn").disabled = true;
+    }
 });
 
 document.getElementById("dropdown2").addEventListener("change", () => {
-    document.getElementById("nextProcedureBtn").disabled = false;
+    const dropdown2 = document.getElementById("dropdown2");
+    if (dropdown2.value) {
+        // Reset other dropdowns and disable their buttons
+        document.getElementById("dropdown1").value = "";
+        document.getElementById("dropdown3").value = "";
+        document.getElementById("nextConditionBtn").disabled = true;
+        document.getElementById("nextMedicationBtn").disabled = true;
+        // Enable this dropdown's button
+        document.getElementById("nextProcedureBtn").disabled = false;
+    } else {
+        document.getElementById("nextProcedureBtn").disabled = true;
+    }
 });
 
 document.getElementById("dropdown3").addEventListener("change", () => {
-    document.getElementById("nextMedicationBtn").disabled = false;
+    const dropdown3 = document.getElementById("dropdown3");
+    if (dropdown3.value) {
+        // Reset other dropdowns and disable their buttons
+        document.getElementById("dropdown1").value = "";
+        document.getElementById("dropdown2").value = "";
+        document.getElementById("nextConditionBtn").disabled = true;
+        document.getElementById("nextProcedureBtn").disabled = true;
+        // Enable this dropdown's button
+        document.getElementById("nextMedicationBtn").disabled = false;
+    } else {
+        document.getElementById("nextMedicationBtn").disabled = true;
+    }
 });
 
 // ---------- SEND MATCH ----------
