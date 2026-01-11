@@ -16,7 +16,7 @@ async function loadConditions() {
         data.forEach(cond => {
             const option = document.createElement("option");
             option.value = cond.code;
-            option.textContent = cond.name;
+            option.textContent = cond.name.replace(/\s*\(disorder\)\s*$/i, '').trim();
             dropdown.appendChild(option);
         });
 

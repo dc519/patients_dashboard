@@ -9,7 +9,7 @@ async def fetch_procedures():
     Only unique procedures are returned based on the SNOMED code.
     """
     try:
-        resp = requests.get(FHIR_PROCEDURE_URL)
+        resp = requests.get(FHIR_PROCEDURE_URL, timeout=10)
         resp.raise_for_status()
         data = resp.json()
         

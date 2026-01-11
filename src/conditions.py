@@ -9,7 +9,7 @@ async def fetch_conditions():
     Only unique conditions are returned based on the SNOMED code.
     """
     try:
-        resp = requests.get(FHIR_CONDITIONS_URL)
+        resp = requests.get(FHIR_CONDITIONS_URL, timeout=10)
         resp.raise_for_status()
         data = resp.json()
         
