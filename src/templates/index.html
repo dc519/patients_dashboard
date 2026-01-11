@@ -4,81 +4,41 @@
     <meta charset="UTF-8">
     <title>FastAPI Demo</title>
     <link rel="stylesheet" href="/static/style.css">
-    <style>
-        /* Optional: make dropdowns fixed width and scrollable */
-        select {
-            width: 250px;
-            max-height: 200px; /* for scrollable options */
-            overflow-y: auto;
-        }
-
-        .patient-card {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 10px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .patient-card.collapsed {
-            background-color: #f9f9f9;
-        }
-
-        .patient-card.expanded {
-            background-color: #e6f7ff;
-        }
-
-        .patient-details {
-            margin-top: 5px;
-        }
-
-        .dropdowns label {
-            display: block;
-            margin-top: 10px;
-        }
-
-        .dropdowns button {
-            margin-top: 5px;
-            margin-bottom: 10px;
-        }
-
-        hr {
-            margin: 20px 0;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Dashboard for Patients</h1>
+        <div class="card">
+            <h1>Dashboard for Patients</h1>
 
-        <div class="dropdowns">
-            <!-- Conditions Dropdown -->
-            <label for="dropdown1">Conditions:</label>
-            <select id="dropdown1">
-                <option value="" selected disabled>Select a condition...</option>
-            </select>
-            <br>
-            <button id="nextConditionBtn" disabled>Next Step</button>
+            <div class="dropdowns">
+                <!-- Conditions Dropdown -->
+                <label for="dropdown1">Conditions:</label>
+                <select id="dropdown1">
+                    <option value="" selected disabled>Select a condition...</option>
+                </select>
+                <br>
+                <button id="nextConditionBtn" disabled>Next Step</button>
 
-            <hr>
+                <hr>
 
-            <!-- Procedure Dropdown -->
-            <label for="dropdown2">Procedures:</label>
-            <select id="dropdown2">
-                <option value="" selected disabled>Select a procedure...</option>
-            </select>
-            <br>
-            <button id="nextProcedureBtn" disabled>Next Step</button>
+                <!-- Procedure Dropdown -->
+                <label for="dropdown2">Procedures:</label>
+                <select id="dropdown2">
+                    <option value="" selected disabled>Select a procedure...</option>
+                </select>
+                <br>
+                <button id="nextProcedureBtn" disabled>Next Step</button>
 
-            <hr>
+                <hr>
 
-            <!-- Medications Dropdown -->
-            <label for="dropdown3">Medications:</label>
-            <select id="dropdown3">
-                <option value="" selected disabled>Select a medication...</option>
-            </select>
-            <br>
-            <button id="nextMedicationBtn" disabled>Next Step</button>
+                <!-- Medications Dropdown -->
+                <label for="dropdown3">Medications:</label>
+                <select id="dropdown3">
+                    <option value="" selected disabled>Select a medication...</option>
+                </select>
+                <br>
+                <button id="nextMedicationBtn" disabled>Next Step</button>
+            </div>
         </div>
 
         <div id="result"></div>

@@ -1,7 +1,7 @@
 // ---------- FILTER INFO DIV ----------
 const filterInfoDiv = document.createElement("div");
 filterInfoDiv.id = "filter-info";
-filterInfoDiv.style.marginBottom = "10px";
+filterInfoDiv.className = "filter-info";
 document.getElementById("result").before(filterInfoDiv);
 
 // ---------- LOAD CONDITIONS ----------
