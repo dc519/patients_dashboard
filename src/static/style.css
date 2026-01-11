@@ -104,6 +104,7 @@ p {
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     margin: 5px 0 10px 0;
     display: block;
+    height: 40px;
     max-height: 200px;
     overflow-y: auto;
     cursor: pointer;
