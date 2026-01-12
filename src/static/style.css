@@ -102,7 +102,7 @@ p {
     color: #2C3E50;
     font-family: inherit;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    margin: 5px 0 0 0;
+    margin: 5px 0 12px 0;
     display: block;
     height: 40px;
     max-height: 200px;
@@ -142,8 +142,9 @@ p {
     cursor: pointer;
     transition: all 0.2s ease;
     box-shadow: 0 2px 4px rgba(0, 102, 204, 0.2);
+    margin-top: 12px;
     margin-bottom: 20px;
-    display: inline-block;
+    display: block;
 }
 
 .dropdowns button:hover:not(:disabled) {
