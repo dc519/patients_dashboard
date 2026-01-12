@@ -76,10 +76,14 @@ document.getElementById("dropdown1").addEventListener("change", () => {
         document.getElementById("dropdown3").value = "";
         document.getElementById("nextProcedureBtn").disabled = true;
         document.getElementById("nextMedicationBtn").disabled = true;
-        // Enable this dropdown's button
+        document.getElementById("resetProcedureBtn").style.display = "none";
+        document.getElementById("resetMedicationBtn").style.display = "none";
+        // Enable this dropdown's button and show reset
         document.getElementById("nextConditionBtn").disabled = false;
+        document.getElementById("resetConditionBtn").style.display = "inline";
     } else {
         document.getElementById("nextConditionBtn").disabled = true;
+        document.getElementById("resetConditionBtn").style.display = "none";
     }
 });
 
@@ -91,10 +95,14 @@ document.getElementById("dropdown2").addEventListener("change", () => {
         document.getElementById("dropdown3").value = "";
         document.getElementById("nextConditionBtn").disabled = true;
         document.getElementById("nextMedicationBtn").disabled = true;
-        // Enable this dropdown's button
+        document.getElementById("resetConditionBtn").style.display = "none";
+        document.getElementById("resetMedicationBtn").style.display = "none";
+        // Enable this dropdown's button and show reset
         document.getElementById("nextProcedureBtn").disabled = false;
+        document.getElementById("resetProcedureBtn").style.display = "inline";
     } else {
         document.getElementById("nextProcedureBtn").disabled = true;
+        document.getElementById("resetProcedureBtn").style.display = "none";
     }
 });
 
@@ -106,10 +114,14 @@ document.getElementById("dropdown3").addEventListener("change", () => {
         document.getElementById("dropdown2").value = "";
         document.getElementById("nextConditionBtn").disabled = true;
         document.getElementById("nextProcedureBtn").disabled = true;
-        // Enable this dropdown's button
+        document.getElementById("resetConditionBtn").style.display = "none";
+        document.getElementById("resetProcedureBtn").style.display = "none";
+        // Enable this dropdown's button and show reset
         document.getElementById("nextMedicationBtn").disabled = false;
+        document.getElementById("resetMedicationBtn").style.display = "inline";
     } else {
         document.getElementById("nextMedicationBtn").disabled = true;
+        document.getElementById("resetMedicationBtn").style.display = "none";
     }
 });
 
@@ -154,6 +166,25 @@ document.getElementById("nextMedicationBtn").addEventListener("click", () => {
     const displayName = dropdown.options[dropdown.selectedIndex].text;
     if (code) sendMatch("medications", code, displayName);
 });
+
+// ---------- RESET FUNCTIONALITY ----------
+function resetAll() {
+    document.getElementById("dropdown1").value = "";
+    document.getElementById("dropdown2").value = "";
+    document.getElementById("dropdown3").value = "";
+    document.getElementById("nextConditionBtn").disabled = true;
+    document.getElementById("nextProcedureBtn").disabled = true;
+    document.getElementById("nextMedicationBtn").disabled = true;
+    document.getElementById("resetConditionBtn").style.display = "none";
+    document.getElementById("resetProcedureBtn").style.display = "none";
+    document.getElementById("resetMedicationBtn").style.display = "none";
+    filterInfoDiv.textContent = "";
+    document.getElementById("result").innerHTML = "";
+}
+
+document.getElementById("resetConditionBtn").addEventListener("click", resetAll);
+document.getElementById("resetProcedureBtn").addEventListener("click", resetAll);
+document.getElementById("resetMedicationBtn").addEventListener("click", resetAll);
 
 // ---------- RENDER RESULTS ----------
 function renderPatients(patients) {

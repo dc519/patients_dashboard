@@ -8,6 +8,7 @@
 <body>
     <div class="container">
         <div class="card">
+            <a href="/" class="back-link">< Back</a>
             <h1>Patient Dashboard</h1>
 
             <div class="dropdowns">
@@ -16,25 +17,30 @@
                 <select id="dropdown1">
                     <option value="" disabled selected>Select a condition...</option>
                 </select>
-                <button id="nextConditionBtn" disabled>Next Step</button>
-
-                <hr>
+                <div class="button-group">
+                    <button id="nextConditionBtn" disabled>Next Step</button>
+                    <span id="resetConditionBtn" class="reset-link" style="display: none;">Reset</span>
+                </div>
 
                 <!-- Procedure Dropdown -->
                 <label for="dropdown2">Procedures:</label>
                 <select id="dropdown2">
                     <option value="" disabled selected>Select a procedure...</option>
                 </select>
-                <button id="nextProcedureBtn" disabled>Next Step</button>
-
-                <hr>
+                <div class="button-group">
+                    <button id="nextProcedureBtn" disabled>Next Step</button>
+                    <span id="resetProcedureBtn" class="reset-link" style="display: none;">Reset</span>
+                </div>
 
                 <!-- Medications Dropdown -->
                 <label for="dropdown3">Medications:</label>
                 <select id="dropdown3">
                     <option value="" disabled selected>Select a medication...</option>
                 </select>
-                <button id="nextMedicationBtn" disabled>Next Step</button>
+                <div class="button-group">
+                    <button id="nextMedicationBtn" disabled>Next Step</button>
+                    <span id="resetMedicationBtn" class="reset-link" style="display: none;">Reset</span>
+                </div>
             </div>
         </div>
 
