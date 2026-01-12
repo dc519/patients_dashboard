@@ -1,10 +1,27 @@
 import json
 from pathlib import Path
+import asyncio
 
 PATIENTS_DIR = Path("data/sample_patients_data_from_hl7")
 
 # Global in-memory patient store
 PATIENTS_DB: dict[str, dict] = {}
+
+
+async def load_dropdown_data():
+    """Load conditions, procedures, and medications into cache during startup"""
+    from .conditions import fetch_conditions
+    from .procedures import fetch_procedures
+    from .medications import fetch_medications
+
+    try:
+        print("🚀 Loading dropdown data from FHIR server...")
+        await fetch_conditions()
+        await fetch_procedures()
+        await fetch_medications()
+        print("✔ Dropdown data loaded into cache")
+    except Exception as e:
+        print(f"⚠️ Failed loading dropdown data: {e}")
 
 
 def load_patients_data():

@@ -8,7 +8,7 @@ from .conditions import fetch_conditions
 from .procedures import fetch_procedures
 from .medications import fetch_medications
 from contextlib import asynccontextmanager
-from .startup import load_patients_data
+from .startup import load_patients_data, load_dropdown_data
 from pydantic import BaseModel
 from .models import SearchCriteria
 from .patient_match import find_matching_patient
@@ -17,6 +17,7 @@ import os
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     load_patients_data()          # startup
+    await load_dropdown_data()    # load dropdown data into cache
     yield
     # (shutdown logic could go here)
 
@@ -36,7 +37,12 @@ app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 # Endpoints
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "message": "Welcome to FastAPI Demo!"})
+    return templates.TemplateResponse("homepage.html", {"request": request})
+
+
+@app.get("/dashboard", response_class=HTMLResponse)
+async def dashboard(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
 
 
 @app.get("/api/conditions")

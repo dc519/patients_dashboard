@@ -11,7 +11,7 @@ async function loadConditions() {
         const data = await response.json();
 
         const dropdown = document.getElementById("dropdown1");
-        dropdown.innerHTML = `<option value="" disabled selected>Select a condition...</option>`;
+        dropdown.innerHTML = `<option value="" disabled>Select a condition...</option>`;
 
         data.forEach(cond => {
             const option = document.createElement("option");
@@ -32,7 +32,7 @@ async function loadProcedures() {
         const data = await response.json();
 
         const dropdown = document.getElementById("dropdown2");
-        dropdown.innerHTML = `<option value="" disabled selected>Select a procedure...</option>`;
+        dropdown.innerHTML = `<option value="" disabled>Select a procedure...</option>`;
 
         data.forEach(proc => {
             const option = document.createElement("option");
@@ -53,7 +53,7 @@ async function loadMedications() {
         const data = await response.json();
 
         const dropdown = document.getElementById("dropdown3");
-        dropdown.innerHTML = `<option value="" disabled selected>Select a medication...</option>`;
+        dropdown.innerHTML = `<option value="" disabled>Select a medication...</option>`;
 
         data.forEach(med => {
             const option = document.createElement("option");
